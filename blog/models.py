@@ -9,3 +9,6 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     # Delete a post once the author gets deleted
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
