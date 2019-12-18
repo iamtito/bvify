@@ -32,6 +32,17 @@
             {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
+            {% if user.is_authenticated %}
+              <div class="content-section">
+                <center><h3>Profile</h3></center>
+                  <p></p>
+                <!-- <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> -->
+                <div class="media-body">
+                  <p class="text-secondary">Username: {{ user.username }}</p>
+                  <p class="text-secondary">Email: {{ user.email }}</p>
+                </div>
+              </div>
+            {% endif %}
             <div class="content-section">
                 <h3>Our Sidebar</h3>
                 <p class='text-muted'>You can put any information here you'd like.
