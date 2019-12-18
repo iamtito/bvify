@@ -32,16 +32,19 @@ body {
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
-    border-radius: 3px;
+    border-radius: 2px;
     margin-bottom: 20px;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1.12), 4px 4px rgba(0,0,0,1.04);
   }
-  
+  /* .content-section:hover {
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1.12), -4px -4px 0px 0px rgba(0,0,0,1.04);
+  } */
   .article-title {
     color: #444444;
   }
   
   a.article-title:hover {
-    color: #428bca;
+    color: #4d096d;
     text-decoration: none;
   }
   
