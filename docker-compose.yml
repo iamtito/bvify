@@ -10,5 +10,8 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    environment: 
+      EMAIL_USER: "${MAIL_USERNAME}"
+      EMAIL_PASS: "${MAIL_PASSWORD}"
     depends_on:
       - db
