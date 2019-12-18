@@ -15,7 +15,11 @@ body {
   .bg-steel {
     background-color: #7520d5;
   }
-  
+  /* 
+  .bg-steel {
+    background-color: #650ff2;
+  }
+  */
   .site-header .navbar-nav .nav-link {
     color: #cbd5db;
   }
@@ -85,3 +89,20 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  /* Overwrite */
+  .btn-outline-info {
+    color: #b120d5;
+    border-color: #b120d5;
+  }
+
+.btn-outline-info:hover {
+  color: #ffffff;
+  border-color: #b120d5;
+  background-color: #b120d5;
+}
+.btn-info {
+  color: #b120d5;
+  border-color: #b120d5;
+  background-color: #b120d5
+}
