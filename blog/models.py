@@ -10,6 +10,8 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     # Delete a post once the author gets deleted
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.CharField(max_length=20,default="")
+    post_image = models.ImageField(default='featured-image.png', upload_to='post_featured_images')
 
     def __str__(self):
         return self.title
