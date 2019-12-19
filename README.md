@@ -4,7 +4,7 @@ This is a project to develop the below
 
 **Contributors?**
 Yes you are welcome to contribute to this project
-Send an email to tbola45@gmail.com to send a Pull Request
+Send an email to tbola45@gmail.com or send a Pull Request
 
 **END GOAL**😃
 ![End Goal](https://bolatito.s3.amazonaws.com/bvitySketch.png)
@@ -16,8 +16,8 @@ Send an email to tbola45@gmail.com to send a Pull Request
 - Smarter news platform that get straight to the point
 - News filter
 - Auto content creation
-- zero journalist, uhm yeah zero journalist -_-
- TO BE CONTINUED
+- zero content creator involvement, uhm yeah  🤷‍♂️
+- to be continued.
 
 **Features Checklist**
 - [x] Login
