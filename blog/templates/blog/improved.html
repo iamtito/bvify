@@ -1,0 +1,46 @@
+
+<div class="card">
+        <div class="card-header" >
+          
+          <div class="feature-user-name"style="float:left;">
+                <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            <div >
+              <a >{{ post.author }}</a>
+            </div>
+              <a style="color: #767676;float:left">{{ post.date_posted|naturaltime }}</a>
+           </div>
+          <a style="float:right;">clap</a>
+       </div>
+       <img class="card-img-top" src="{{ post.post_image.url }}" alt="Card image cap" style="width:100%;object-fit:cover;">
+       <figcaption style="color: #767676;">Source: Bvity News Media</figcaption>
+       <div class="card-body">
+           <h2 class="card-title" style="padding:0px 3px;">{{ post.title }}</h2>
+           <p class="card-text">{{ post.content | truncatechars:220}}</p>
+         <details>
+       <summary>Read more.</summary>
+       <p> {{ post.content }}</p>
+     </details>
+         </div>
+         <div class="card-footer">
+           <small class="text-muted" style="float:left;">{{ post.category}}</small>
+         </div>
+     </div>
+
+
+
+     <!-- THE BELOW IS CURRENTLY WORKING -->
+     {% load humanize %}
+<article class="media content-section card">
+    <img class="card-img-top" src="{{ post.post_image.url }}">
+    <div class="card-body" >
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <div class="media-body">
+            <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted|naturaltime }} | {{ post.category }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content | truncatechars:120}}</p>
+        </div>
+    </div>
+</article>

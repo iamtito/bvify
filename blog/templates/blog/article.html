@@ -1,12 +1,28 @@
 {% load humanize %}
-<article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-    <div class="media-body">
-        <div class="article-metadata">
-        <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-        <small class="text-muted">{{ post.date_posted|naturaltime }}</small>
+<article class="media content card">
+    <div class="card-header" >
+        <img class="rounded-circle feature-post-img" src="{{ post.author.profile.image.url }}">
+        <div class="feature-user-name"style="float:left;">
+            <div >
+            <a >{{ post.author }}</a>
+            </div>
+            <a style="color: #767676;float:left">{{ post.date_posted|naturaltime }}</a>
+            </div>
+        <a style="float:right;color: rgba(0, 0, 0, 0.84);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><g id="Coffee_cup-7" data-name="Coffee cup"><path d="M31,52v2A13.015,13.015,0,0,0,44,41H42A11.013,11.013,0,0,1,31,52Z"/><path d="M57,30H48V29a3,3,0,0,0-3-3H5a3,3,0,0,0-3,3V41A17.028,17.028,0,0,0,14,57.247V59a3,3,0,0,0,3,3H33a3,3,0,0,0,3-3V57.247A17.07,17.07,0,0,0,46.474,48H57a5.006,5.006,0,0,0,5-5V35A5.006,5.006,0,0,0,57,30Zm-9,5h8a1,1,0,0,1,1,1v6a1,1,0,0,1-1,1H47.872A17.138,17.138,0,0,0,48,41ZM34,59a1,1,0,0,1-1,1H17a1,1,0,0,1-1-1V57.719A17.052,17.052,0,0,0,19,58H31a17.052,17.052,0,0,0,3-.281Zm-3-3H19A15.017,15.017,0,0,1,4,41V29a1,1,0,0,1,1-1H45a1,1,0,0,1,1,1V41A15.017,15.017,0,0,1,31,56ZM60,43a3,3,0,0,1-3,3H47.247c.1-.327.177-.665.258-1H56a3,3,0,0,0,3-3V36a3,3,0,0,0-3-3H48V32h9a3,3,0,0,1,3,3Z"/><rect x="42" y="36" width="2" height="2"/><path d="M23,22h2a4.656,4.656,0,0,1,.857-2.819A6.6,6.6,0,0,0,27,15.332a6.6,6.6,0,0,0-1.143-3.849A4.656,4.656,0,0,1,25,8.664a4.652,4.652,0,0,1,.857-2.817A6.594,6.594,0,0,0,27,2H25a4.65,4.65,0,0,1-.857,2.817A6.594,6.594,0,0,0,23,8.664a6.6,6.6,0,0,0,1.143,3.848A4.66,4.66,0,0,1,25,15.332a4.656,4.656,0,0,1-.857,2.819A6.6,6.6,0,0,0,23,22Z"/><path d="M33,22h2a4.656,4.656,0,0,1,.857-2.819A6.6,6.6,0,0,0,37,15.332a6.6,6.6,0,0,0-1.143-3.849A4.656,4.656,0,0,1,35,8.664a4.652,4.652,0,0,1,.857-2.817A6.594,6.594,0,0,0,37,2H35a4.65,4.65,0,0,1-.857,2.817A6.594,6.594,0,0,0,33,8.664a6.6,6.6,0,0,0,1.143,3.848A4.66,4.66,0,0,1,35,15.332a4.656,4.656,0,0,1-.857,2.819A6.6,6.6,0,0,0,33,22Z"/><path d="M13,22h2a4.656,4.656,0,0,1,.857-2.819A6.6,6.6,0,0,0,17,15.332a6.6,6.6,0,0,0-1.143-3.849A4.656,4.656,0,0,1,15,8.664a4.652,4.652,0,0,1,.857-2.817A6.594,6.594,0,0,0,17,2H15a4.65,4.65,0,0,1-.857,2.817A6.594,6.594,0,0,0,13,8.664a6.6,6.6,0,0,0,1.143,3.848A4.66,4.66,0,0,1,15,15.332a4.656,4.656,0,0,1-.857,2.819A6.6,6.6,0,0,0,13,22Z"/></g></svg>
+        33
+        </a>
+        
+    </div>
+    <img class="card-img-top" src="{{ post.post_image.url }}">
+    
+    <div class="card-body" >
+        <div class="media-body">
+            <h6 style="text-transform: uppercase;text-align: justify;"><strong><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></strong></h6>
+            <p class="article-content">{{ post.content | truncatechars:120}}</p>
         </div>
-        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content }}</p>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">{{ post.category }}</small>
+        <small class="text-muted" style="float: right;" >social</small>
     </div>
 </article>
