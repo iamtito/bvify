@@ -1,0 +1,49 @@
+name: Docker Image CI
+
+on:
+  release:
+    types: [created]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: checkit
+      run: |
+        export GITHUB_TAG="${GITHUB_REF/refs\/tags\/}"
+        echo $GITHUB_TAG
+        echo GITHUB_REF=${GITHUB_REF}
+        echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
+        echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
+
+        jenkins_response=`curl -X POST \
+          http://gitjenkins-1637414959.us-east-1.elb.amazonaws.com \
+          -H 'Content-Type: application/json' \
+          -H 'Host: gitjenkins-1637414959.us-east-1.elb.amazonaws.com' \
+          -H 'X-GitHub-Event: release' \
+          -H 'cache-control: no-cache' \
+          -d '{
+            "action": "created",
+            "release": {
+              "tag_name": "${GITHUB_TAG}",
+              "target_commitish": "${EXTRACT_GITHUB_REF}",
+              "author": {
+                "login": "iamtito"
+                }
+              },
+            "repository":{
+              "name": "talentinc-devops"
+              }
+            }'`
+        if [ $jenkins_response = "18" ]; then
+            echo "Status 200 OK"
+        else
+            echo "GitHub Action Failed to trigger the Jenkins Job"
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"Requesting for a meme Deployment because GitHub Action Failed to trigger the Jenkins Job"}' https://hooks.slack.com/services/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
+        fi
+
+        # curl -X POST -H 'Content-type: application/json' --data '{"text":"Requesting for a gOMS Deployment because GitHub Action Failed to trigger the Jenkins Job"}' https://hooks.slack.com/services/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
