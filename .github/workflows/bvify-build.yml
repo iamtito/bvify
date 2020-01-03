@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag bvify:$(date +%s)
     - name: checkit
       run: |
         echo GITHUB_REF=${GITHUB_REF}
         echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
         echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag bvify:$(date +%s)
