@@ -3,6 +3,15 @@ version: '3'
 services:
   db:
     image: postgres
+  migration:
+    build: .
+    command: python manage.py migrate
+    volumes:
+      - .:/code
+    links:
+      - db
+    depends_on:
+      - db
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -17,4 +26,4 @@ services:
       DJANGO_AWS_SECRET_ACCESS_KEY: "${DJANGO_AWS_SECRET_ACCESS_KEY}"
       DJANGO_AWS_STORAGE_BUCKET_NAME: "${DJANGO_AWS_STORAGE_BUCKET_NAME}"
     depends_on:
-      - db
+      - migration
