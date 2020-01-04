@@ -10,6 +10,16 @@ Bolatito Kabir
 Yes you are welcome to contribute to this project
 Send an email to tbola45@gmail.com or send a Pull Request
 
+**Getting Started**
+Clone the repository and start the container, make sure you have docker and docker compose running on your os.
+Open your terminal and run the following command:
+```
+git clone git@github.com:iamtito/bvify.git
+cd bvify
+docker-compose build
+docker-compose up
+```
+
 **END GOAL**😃
 Using sketch + zeplin to deisgning the interface
 
