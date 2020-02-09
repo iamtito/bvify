@@ -20,5 +20,20 @@ jobs:
         git describe --tags
         echo "the above is true"
         ls
+  
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: iamtito/react-app
+
+    - name: list files
+      run: |
+        git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        git tag | sort -V | tail -1
+        ls
+      
+    
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag bvify:$(date +%s)
