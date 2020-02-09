@@ -15,5 +15,6 @@ jobs:
         echo GITHUB_REF=${GITHUB_REF}
         echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
         echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
+        echo "you have $(git describe --tags) tag"
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag bvify:$(date +%s)
