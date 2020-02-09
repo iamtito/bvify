@@ -17,7 +17,7 @@ jobs:
         echo GITHUB_REF=${GITHUB_REF}
         echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
         echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
-        echo $(git describe --tags)
+        git describe --tags
         echo "the above is true"
         ls
     # - name: Build the Docker image
