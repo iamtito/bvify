@@ -17,7 +17,7 @@ jobs:
         echo GITHUB_REF=${GITHUB_REF}
         echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
         echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
-        $(git describe --tags)-$(git rev-parse HEAD | cut -c 1-7)
+        echo "v$(git tag | sort -V | tail -1)-$(git rev-parse HEAD | cut -c 1-7)"
         echo "the above is true"
         ls
   
