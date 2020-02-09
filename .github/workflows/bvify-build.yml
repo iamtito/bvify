@@ -9,12 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: checkit
       run: |
         echo GITHUB_REF=${GITHUB_REF}
         echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
         echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
-        echo "you have $(git describe --tags) tag"
+        echo $(git describe --tags)
+        echo "the above is true"
+        ls
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag bvify:$(date +%s)
