@@ -17,6 +17,7 @@ jobs:
         git fetch --depth=1 origin +refs/tags/*:refs/tags/*
         git tag | sort -V | tail -1
         TAG=$(git tag | sort -V | tail -1)-$(git rev-parse HEAD | cut -c 1-7)
+        echo "${BUILD_TAG} and the other is ${TAG}"
         docker build -t bvity:v${BUILD_TAG} .
   
   frontend:
